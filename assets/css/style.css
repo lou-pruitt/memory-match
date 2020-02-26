@@ -1,1 +1,44 @@
-
+body {
+  height: 97vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../images/lfz-background.jpg');
+  background-size: cover;
+}
+#header-container {
+  justify-content: center;
+}
+.header-container {
+  height: 10%;
+}
+.game-area-container {
+  height: 90%;
+}
+aside,
+main {
+  display: flex;
+  height: 100%;
+}
+.stats-container {
+  flex-flow: column;
+  justify-content: space-between;
+  font-weight: 800;
+}
+.stats-container > div {
+  height: 10%;
+  background-color: #87ceeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cards-container {
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.card {
+  height: 28%;
+  background-image: url(../images/lfz-card.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
