@@ -8,9 +8,47 @@ var maxMatches = 9;
 var matches = 0;
 var attempts = 0;
 var gamesPlayed = 0;
+var gameCardImages = [
+  'css',
+  'docker',
+  'gitHub',
+  'html',
+  'js',
+  'mysql',
+  'node',
+  'php',
+  'react'
+];
+
+createShuffle();
 
 gameCards.addEventListener('click', handleClick);
 resetBtn.addEventListener('click', resetGame);
+
+function createShuffle() {
+  var cardsContainer = document.querySelector('.cards-container');
+
+  let repeatIndex;
+  let cardIndex;
+
+  for (repeatIndex = 0; repeatIndex <= 1; repeatIndex++) {
+    for (cardIndex = 0; cardIndex < gameCardImages.length; cardIndex++) {
+      var cardFront = document.createElement('div');
+      var card = document.createElement('div');
+      var cardBack = document.createElement('div');
+
+      cardBack.classList.add('card-back');
+      card.classList.add('col-2', 'card');
+      cardFront.classList.add(
+        'card-front',
+        gameCardImages[cardIndex] + '-logo'
+      );
+      cardsContainer.append(card);
+      card.append(cardFront, cardBack);
+    }
+    cardIndex = 0;
+  }
+}
 
 function handleClick(event) {
   if (event.target.className.indexOf('card-back') === -1) {
