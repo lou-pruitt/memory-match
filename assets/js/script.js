@@ -20,34 +20,40 @@ var gameCardImages = [
   'react'
 ];
 
-createShuffle();
+createCards();
 
 gameCards.addEventListener('click', handleClick);
 resetBtn.addEventListener('click', resetGame);
 
-function createShuffle() {
+function createCards() {
   var cardsContainer = document.querySelector('.cards-container');
-
-  let repeatIndex;
+  doubleArraySize();
+  shuffleCards();
   let cardIndex;
 
-  for (repeatIndex = 0; repeatIndex <= 1; repeatIndex++) {
-    for (cardIndex = 0; cardIndex < gameCardImages.length; cardIndex++) {
-      var cardFront = document.createElement('div');
-      var card = document.createElement('div');
-      var cardBack = document.createElement('div');
+  for (cardIndex = 0; cardIndex < gameCardImages.length; cardIndex++) {
+    var cardFront = document.createElement('div');
+    var card = document.createElement('div');
+    var cardBack = document.createElement('div');
 
-      cardBack.classList.add('card-back');
-      card.classList.add('col-2', 'card');
-      cardFront.classList.add(
-        'card-front',
-        gameCardImages[cardIndex] + '-logo'
-      );
-      cardsContainer.append(card);
-      card.append(cardFront, cardBack);
-    }
-    cardIndex = 0;
+    cardBack.classList.add('card-back');
+    card.classList.add('col-2', 'card');
+    cardFront.classList.add('card-front', gameCardImages[cardIndex] + '-logo');
+    cardsContainer.append(card);
+    card.append(cardFront, cardBack);
   }
+  cardIndex = 0;
+}
+
+function doubleArraySize() {
+  gameCardImages = gameCardImages.concat(gameCardImages);
+  console.log(gameCardImages);
+}
+
+function shuffleCards() {
+  gameCardImages.sort(function(a, b) {
+    return 0.5 - Math.random();
+  });
 }
 
 function handleClick(event) {
@@ -77,7 +83,6 @@ function handleClick(event) {
         var modal = document.querySelector('.modal');
         modal.classList.remove('hidden');
       }
-      console.log('Matches:', matches);
     } else {
       setTimeout(function() {
         firstCardClicked.classList.remove('hidden');
@@ -119,7 +124,6 @@ function resetGame() {
 
 function resetCards() {
   var hiddenCards = document.querySelectorAll('.card-back');
-  console.log('hiddenCards', hiddenCards.length);
   let i;
   for (i = 0; i < hiddenCards.length; i++) {
     hiddenCards[i].classList.remove('hidden');
