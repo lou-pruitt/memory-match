@@ -28,7 +28,7 @@ resetBtn.addEventListener('click', resetGame);
 function createCards() {
   var cardsContainer = document.querySelector('.cards-container');
   doubleArraySize();
-  schuffleCards();
+  shuffleCards();
   let cardIndex;
 
   for (cardIndex = 0; cardIndex < gameCardImages.length; cardIndex++) {
@@ -50,7 +50,7 @@ function doubleArraySize() {
   console.log(gameCardImages);
 }
 
-function schuffleCards() {
+function shuffleCards() {
   gameCardImages.sort(function(a, b) {
     return 0.5 - Math.random();
   });
