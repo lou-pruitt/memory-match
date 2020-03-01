@@ -93,3 +93,11 @@ main {
   background-color: dodgerblue;
   text-align: center;
 }
+.modal button {
+  font-size: x-large;
+  border-top: 5px solid darkslategray;
+  border-bottom: 5px solid darkslategray;
+  border-radius: 10%;
+  height: fit-content;
+  width: fit-content;
+}
