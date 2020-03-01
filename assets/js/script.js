@@ -46,6 +46,9 @@ function createCards() {
 }
 
 function doubleArraySize() {
+  if (gameCardImages.length >= 18) {
+    return;
+  }
   gameCardImages = gameCardImages.concat(gameCardImages);
   console.log(gameCardImages);
 }
@@ -120,6 +123,11 @@ function resetGame() {
   resetCards();
   var modal = document.querySelector('.modal');
   modal.classList.add('hidden');
+  var cardsContainer = document.querySelector('.cards-container');
+  while (cardsContainer.hasChildNodes()) {
+    cardsContainer.removeChild(cardsContainer.firstChild);
+  }
+  createCards();
 }
 
 function resetCards() {
