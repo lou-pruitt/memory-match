@@ -50,7 +50,6 @@ function doubleArraySize() {
     return;
   }
   gameCardImages = gameCardImages.concat(gameCardImages);
-  console.log(gameCardImages);
 }
 
 function shuffleCards() {
