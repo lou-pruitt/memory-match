@@ -36,7 +36,7 @@ main {
   justify-content: space-evenly;
 }
 .card {
-  height: 28%;
+  height: 32%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
