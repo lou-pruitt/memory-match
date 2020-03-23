@@ -7,7 +7,6 @@
 .row {
   width: 100%;
   display: flex;
-  margin-bottom: 0.5rem;
 }
 .col-1 {
   width: 8%;
